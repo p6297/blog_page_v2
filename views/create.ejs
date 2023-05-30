@@ -1,0 +1,27 @@
+<html lang="en">
+ <%- include("./partials/header.ejs") %> 
+
+<body>
+   <%- include("./partials/navbar.ejs") %> 
+
+   <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Blog Title</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Title Here...">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Blog Snippet</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Snippet Here..">
+    </div>
+  
+   
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Blog Body</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    </div>
+  </form>
+  <button type="button" class="btn  m-3 btn-dark">Create</button>
+
+   <%- include("./partials/footer.ejs") %> 
+</body>
+</html>
