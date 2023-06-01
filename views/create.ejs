@@ -4,23 +4,24 @@
 <body>
    <%- include("./partials/navbar.ejs") %> 
 
-   <form>
+   <form action="/blogs" method="POST">
     <div class="form-group">
-      <label for="exampleFormControlInput1">Blog Title</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Title Here...">
+      <label for="title" >Blog Title</label>
+      <input type="text" class="form-control" name="title" id="title" required placeholder="Enter your Title Here...">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlInput1">Blog Snippet</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Snippet Here..">
+      <label for="snippet" >Blog Snippet</label>
+      <input type="text" class="form-control" name="snippet" id="snippet" required placeholder="Enter Snippet Here..">
     </div>
   
    
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Blog Body</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+      <label for="body">Blog Body</label>
+      <textarea class="form-control" name="body" required id="body" rows="5"></textarea>
     </div>
+    <button type="submit" class="btn m-3 btn-dark">Create</button>
   </form>
-  <button type="button" class="btn  m-3 btn-dark">Create</button>
+  
 
    <%- include("./partials/footer.ejs") %> 
 </body>
