@@ -8,19 +8,37 @@
     <%- include("./partials/navbar.ejs") %> 
     
     
-    <div class="title">
+    
+        <h1 class="text-center">All Blogs</h1>
+        
       
-
+        <div class="container ">
     <% if(blogs.length > 0) { %>
         <% blogs.forEach((blog => { %>
-            <h1 class="title"><%= blog.name %></h1>
-            <hr>
-            <p class="snippet"><%= blog.snippet%></p>
-            <hr>
+
+           <div class="bg-secondary">
+            <a href="/blogs/<%= blog._id%>" class="text-reset text-decoration-none">
+                <h2 class="title m-2 text-black "><%= blog.title %></h2>
+                <h4 class="snippet m-3 pb-2 text-white"><%= blog.snippet%></h4>
+
+            </a>
+           </div>
+           
+           
+            <!-- <p class="body"><%= blog.body%></p> -->
+        
         <% })) %>
     <% } else { %>
-        <p>There is no Blog to Display</p>
-    <% } %>
+        <div class="m-5 text-center">
+            <h1>There is no Blog to Display!!!</h1>
+
+        </div>
+        
+    <% } %> 
+    
+    
+    
+   </div>
 
 </body>
 <%- include("./partials/footer.ejs") %> 
