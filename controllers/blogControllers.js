@@ -31,17 +31,27 @@ const blog_create_get = (req,res) => {
     res.render("create",{title:"Create a new Blog"})
 }
 
-const blog_create_post = (req,res) => {
+
+
+const blog_create_post = (req, res) => {
     const blog = new Blog(req.body);
 
     blog.save()
-    .then((result) => {
-        res.redirect("/blogs");
-    }).catch((err)=> {
-        throw err;
-    })
+        .then((result) => {
+            res.redirect("/blogs");
+        })
+        .catch((err) => {
+            if (err.code === 11000 && err.keyPattern && err.keyPattern.snippet && err.keyPattern.body) {
+                // Duplicate key error for the snippet field
+                const duplicateValue = err.keyValue.snippet;
+                res.status(400).send(`The snippet '${duplicateValue}' already exists.`);
+            } else {
+                throw err;
+            }
+        });
+};
 
-}
+
 const blog_delete = (req,res) => {
     try {
         const id = (req.params.id)
