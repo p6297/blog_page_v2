@@ -4,22 +4,22 @@
 
 
 
-<body>
+<body class="bg-secondary">
     <%- include("./partials/navbar.ejs") %> 
     
     
     
-        <h1 class="text-center">All Blogs</h1>
+        <h1 class="text-center bg-primary text-black display-1 mb-1 pb-2">All Blogs</h1>
         
       
-        <div class="container ">
+        <div class="">
     <% if(blogs.length > 0) { %>
         <% blogs.forEach((blog => { %>
 
-           <div class="bg-secondary">
+           <div class="card m-3">
             <a href="/blogs/<%= blog._id%>" class="text-reset text-decoration-none">
                 <h2 class="title m-2 text-black "><%= blog.title %></h2>
-                <h4 class="snippet m-3 pb-2 text-white"><%= blog.snippet%></h4>
+                <h4 class="snippet m-3 pb-2 text-black"><%= blog.snippet%></h4>
 
             </a>
            </div>
