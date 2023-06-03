@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const BlogSchema = new Schema ({
     title: {
         type: String,
-        unique: true,
+        unique: true["title must be unique"],
     },
     snippet: {
         type:String,

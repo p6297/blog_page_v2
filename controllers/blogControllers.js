@@ -41,13 +41,7 @@ const blog_create_post = (req, res) => {
             res.redirect("/blogs");
         })
         .catch((err) => {
-            if (err.code === 11000 && err.keyPattern && err.keyPattern.snippet && err.keyPattern.body) {
-                // Duplicate key error for the snippet field
-                const duplicateValue = err.keyValue.snippet;
-                res.status(400).send(`The snippet '${duplicateValue}' already exists.`);
-            } else {
-                throw err;
-            }
+           console.log(err);
         });
 };
 
