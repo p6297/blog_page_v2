@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Blog = require("./models/blog");
 const blogRoutes = require("./routes/blogRoutes");
 
-const mongo_uri = ("mongodb+srv://partha:partha123@cluster0.w4vuwgk.mongodb.net/blog_app?retryWrites=true&w=majority");
+const mongo_uri = process.env.DB_URL
 
 mongoose.connect(mongo_uri,{
     useNewUrlParser:true, useUnifiedTopology:true
