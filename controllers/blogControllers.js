@@ -2,7 +2,7 @@ const Blog = require("../models/blog");
 
 const blog_index = async (req, res) => {
   try {
-    const response = await Blog.find().sort({ createdAt: -1 });
+    const response = await Blog.find().sort({ createdAt: -1 }).timeout(10000);
     res.render("blog", { title: "All Blogs", blogs: response });
   } catch (error) {
     console.error(error);
