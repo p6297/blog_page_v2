@@ -6,14 +6,16 @@ const blogRoutes = require("./routes/blogRoutes");
 
 const mongo_uri = process.env.DB_URL
 
-mongoose.connect(mongo_uri,{
-    useNewUrlParser:true, useUnifiedTopology:true
-})
-.then((result)=> {
-   console.log(`db connected`)
-}).catch((err)=> {
-    console.log(err)
-})
+try {
+  await mongoose.connect(mongo_uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    connectTimeoutMS: 10000, // Maximum connection timeout in milliseconds
+  });
+  console.log("db connected");
+} catch (error) {
+  console.log(error);
+}
 
 const app = express();
 
