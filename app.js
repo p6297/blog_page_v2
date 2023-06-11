@@ -8,9 +8,7 @@ const mongo_uri = ("mongodb+srv://partha:partha123@cluster0.w4vuwgk.mongodb.net/
 
 
 mongoose.connect(mongo_uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  bufferTimeoutMS: 30000, 
+  useNewUrlParser: true
 })
   .then((result) => {
     console.log('Connected to MongoDB');
