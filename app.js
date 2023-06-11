@@ -4,18 +4,24 @@ const mongoose = require("mongoose");
 const Blog = require("./models/blog");
 const blogRoutes = require("./routes/blogRoutes");
 
-const mongo_uri = process.env.DB_URL
+const mongo_uri = process.env.MONGO_URL;
 
-try {
-  await mongoose.connect(mongo_uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    connectTimeoutMS: 10000, // Maximum connection timeout in milliseconds
-  });
-  console.log("db connected");
-} catch (error) {
-  console.log(error);
-}
+const connectToMongoDB = async (mongoURI) => {
+  try {
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      connectTimeoutMS: 10000, // Maximum connection timeout in milliseconds
+    });
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
+  }
+};
+
+connectToMongoDB(mongo_uri);
+
+
 
 const app = express();
 
