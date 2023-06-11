@@ -6,20 +6,18 @@ const blogRoutes = require("./routes/blogRoutes");
 
 const mongo_uri = process.env.MONGO_URL;
 
-const connectToMongoDB = async (mongoURI) => {
-  try {
-    await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      connectTimeoutMS: 10000, // Maximum connection timeout in milliseconds
-    });
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    console.error("Failed to connect to MongoDB:", error);
-  }
-};
 
-connectToMongoDB(mongo_uri);
+mongoose.connect(mongo_uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  bufferTimeoutMS: 30000, 
+})
+  .then((result) => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Failed to connect to MongoDB:', error);
+  });
 
 
 
